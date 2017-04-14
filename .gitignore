@@ -1,0 +1,5 @@
+
+# build process
+build/x86/*
+build/x86_64/*
+src/*.log
