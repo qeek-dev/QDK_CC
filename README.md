@@ -9,9 +9,9 @@ A pure cross compiler environment for QNAP NAS, support x86-32 and x86-64.
 ```
 ./build_cc.sh all
 or
-./build_cc.sh x86-64
+./build_cc.sh cross_compile x86-64
 or
-./build_cc.sh x86
+./build_cc.sh cross_compile x86
 ```
 
   - Will make the target which specified in the `all:` label, for instance: `all: Python-3.6.1`
