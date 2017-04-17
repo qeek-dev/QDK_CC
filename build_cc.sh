@@ -15,9 +15,9 @@ log() {
 }
 
 cross_compile() {
-	log "cross_compile( $1 $2 $3 ) ..."
+    log "cross_compile( $1 $2 $3 ) ..."
 
-	cd ${local_path}
+    cd ${local_path}
 
     local CPU_ARCH=$1
 
