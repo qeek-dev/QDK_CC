@@ -20,9 +20,10 @@ cross_compile() {
     cd ${local_path}
 
     local CPU_ARCH=$1
+    local MAKEFILE=$2
 
-	if [ ! -d ${CPU_ARCH} ]; then
-		mkdir ${CPU_ARCH}
+	if [ ! -d build/${CPU_ARCH} ]; then
+		mkdir build/${CPU_ARCH}
 	fi
 
 	local DOCKER_IMG="qnapandersen/qdk_toolchain_x86_x64"
@@ -42,7 +43,7 @@ cross_compile() {
 
     docker run $DOCKER_PARAM $DOCKER_IMG bash -c "\
         /root/tools/qpkg_builder/all/prepare_in_docker.sh ${CPU_ARCH}; \
-        /root/tools/qpkg_builder/all/cross_compile_in_docker.sh ${CPU_ARCH} \
+        /root/tools/qpkg_builder/all/cross_compile_in_docker.sh ${CPU_ARCH} ${MAKEFILE} \
         "
     [ $? != "0" ] && echo "build fail" && exit 1
 
@@ -55,13 +56,23 @@ BUILD_DATE=`date +"%Y%m%d-%H%M"`
 case ${1} in
 	all)
 		log "*** CC start ... ***"
-		cross_compile "x86_64"
-		cross_compile "x86"
+		cross_compile "x86_64" ${2}
+		cross_compile "x86" ${2}
+		log "*** CC done. ***"
+		;;
+	x86)
+		log "*** CC start ... ***"
+		cross_compile "x86" ${2}
+		log "*** CC done. ***"
+		;;
+	x86_64)
+		log "*** CC start ... ***"
+		cross_compile "x86" ${2}
 		log "*** CC done. ***"
 		;;
 	*)
 		# only for debugging
-		eval ${1} ${2} ${3}
+		eval ${1} ${2} ${3} ${4}
 		;;
 esac
 
