@@ -49,7 +49,8 @@ cd ${BUILD_ROOT}
 # cd ${BUILD_ROOT}/src
 # chmod -R 666 .
 
-find ${BUILD_ROOT}/build/${CPU_ARCH} -type d -exec chmod 755 {} \;
-find ${BUILD_ROOT}/build/${CPU_ARCH} -type f -exec chmod 644 {} \;
+chown nobody:nogroup -R ${BUILD_ROOT}/build/${CPU_ARCH}
+# find ${BUILD_ROOT}/build/${CPU_ARCH} -type d -exec chmod 755 {} \;
+# find ${BUILD_ROOT}/build/${CPU_ARCH} -type f -exec chmod 644 {} \;
 
 echo "=== CROSS end ==="
