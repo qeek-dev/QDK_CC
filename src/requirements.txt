@@ -33,6 +33,7 @@ python-engineio==1.1.0
 python-socketio==1.6.3
 flask_socketio==2.8.2
 qrcode==5.3
+pycrypto==2.6.1
 #Pillow==4.0.0
 #watchdog==0.8.3
 #MySQL-python==1.2.5

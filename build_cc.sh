@@ -67,7 +67,7 @@ case ${1} in
 		;;
 	x86_64)
 		log "*** CC start ... ***"
-		cross_compile "x86" ${2}
+		cross_compile "x86_64" ${2}
 		log "*** CC done. ***"
 		;;
 	*)
