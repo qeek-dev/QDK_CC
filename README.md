@@ -9,7 +9,7 @@ A pure cross compiler environment for QNAP NAS, support x86-32 and x86-64.
 ```
 ./build_cc.sh all makefile
 or
-./build_cc.sh x86-64 makefile
+./build_cc.sh x86_64 makefile
 or
 ./build_cc.sh x86 makefile
 ```

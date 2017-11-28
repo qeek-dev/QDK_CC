@@ -23,7 +23,7 @@ cross_compile() {
     local MAKEFILE=$2
 
 	if [ ! -d build/${CPU_ARCH} ]; then
-		mkdir build/${CPU_ARCH}
+		mkdir -p build/${CPU_ARCH}
 	fi
 
 	local DOCKER_IMG="qnapandersen/qdk_toolchain_x86_x64"
